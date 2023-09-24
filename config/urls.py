@@ -16,7 +16,7 @@ urlpatterns = [
     path("users/", include("job_tracker.users.urls", namespace="users")),
     path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
-    path('applications', include("job_tracker.jobs.urls", namespace="jobs")),
+    path('jobs/', include("job_tracker.jobs.urls", namespace="jobs")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # API URLS

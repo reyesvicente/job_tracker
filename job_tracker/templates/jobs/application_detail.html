@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %} Applications: {{ application.company_name }}{% endblock title %}
+{% block content %}
+
+<h1>Job Application</h1>
+<p><strong>Name:</strong> {{ application.name }}</p>
+<p><strong>Email:</strong> {{ application.email }}</p>
+<p><strong>Company Name:</strong> {{ application.company_name }}</p>
+<p><strong>Position:</strong> {{ application.position }}</p>
+<p><strong>Rate:</strong> {{ application.rate }}</p>
+<p><strong>Status:</strong> {{ application.status }}</p>
+<p><strong>Notes:</strong> {{ application.notes }}</p>
+<a href="{% url 'jobs:list' %}" class="btn btn-primary">Back</a>
+<a href="{% url 'jobs:delete' application.slug %}" class="btn btn-danger">Delete</a>
+<a href="{% url 'jobs:update' application.slug %}" class="btn btn-secondary">Update</a>
+{% endblock content %}
