@@ -10,6 +10,8 @@
 <p><strong>Rate:</strong> {{ application.rate }}</p>
 <p><strong>Status:</strong> {{ application.status }}</p>
 <p><strong>Notes:</strong> {{ application.notes }}</p>
+<p><strong>Created:</strong> {{ application.created }}</p>
+
 <a href="{% url 'jobs:list' %}" class="btn btn-primary">Back</a>
 <a href="{% url 'jobs:delete' application.slug %}" class="btn btn-danger">Delete</a>
 <a href="{% url 'jobs:update' application.slug %}" class="btn btn-secondary">Update</a>
