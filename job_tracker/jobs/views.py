@@ -12,6 +12,7 @@ User = get_user_model()
 
 class ApplicationListView(LoginRequiredMixin, ListView):
     model = Application
+    context_object_name = 'applications'
 
     def get_queryset(self):
         return self.model.objects.filter(user=self.request.user)
