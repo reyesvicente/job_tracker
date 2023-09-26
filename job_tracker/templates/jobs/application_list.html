@@ -4,7 +4,7 @@
 <a class="btn btn-primary" href="{% url 'jobs:add' %}" role="button">
     Add Application
 </a>
-<br>
+<br><br>
 <table class="table table-striped table-hover table-bordered">
     <thead class="table-dark">
         <tr>
@@ -31,7 +31,6 @@
                 <td>{{ application.status }}</td>
                 <td>{{ application.notes }}</td>	
                 <td>{{ application.created }}</td>
-                <td>{{ application.modified }}</td>	
             </tr>
         {% endfor %}
       </tbody>

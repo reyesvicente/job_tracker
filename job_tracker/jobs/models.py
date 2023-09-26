@@ -1,7 +1,10 @@
 from django.urls import reverse
+from django.contrib.auth import get_user_model
 from django.db import models
 from autoslug import AutoSlugField
 from model_utils.models import TimeStampedModel
+
+User = get_user_model()
 
 
 class Application(TimeStampedModel):
@@ -12,6 +15,7 @@ class Application(TimeStampedModel):
         for_meeting = "For Meeting"
         no_reply = "No Reply"
 
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
     name = models.CharField(max_length=100)
     slug = AutoSlugField(populate_from='company_name', default=None)
     email = models.EmailField()
