@@ -17,7 +17,7 @@ class Application(TimeStampedModel):
 
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
     name = models.CharField(max_length=100)
-    slug = AutoSlugField(populate_from='company_name', default=None)
+    slug = AutoSlugField(populate_from="company_name", default=None)
     email = models.EmailField()
     company_name = models.CharField(max_length=100)
     position = models.CharField(max_length=100)
@@ -26,9 +26,9 @@ class Application(TimeStampedModel):
     notes = models.TextField()
 
     class Meta:
-        verbose_name = 'tracker'
-        verbose_name_plural = 'tracker'
-        
+        verbose_name = "tracker"
+        verbose_name_plural = "tracker"
+
     def __str__(self):
         return self.slug
 

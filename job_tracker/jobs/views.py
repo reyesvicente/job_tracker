@@ -18,15 +18,15 @@ class ApplicationListView(LoginRequiredMixin, ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['applications'] = self.get_queryset()
+        context["applications"] = self.get_queryset()
         return context
-    
+
 
 class ApplicationDetailView(LoginRequiredMixin, DetailView):
     model = Application
 
     def get_object(self):
-        obj = get_object_or_404(Application, slug=self.kwargs['slug']) 
+        obj = get_object_or_404(Application, slug=self.kwargs["slug"])
         if obj.user != self.request.user:
             raise Http404()
         return obj
@@ -34,15 +34,7 @@ class ApplicationDetailView(LoginRequiredMixin, DetailView):
 
 class ApplicationCreateView(LoginRequiredMixin, CreateView):
     model = Application
-    fields = [
-        'name',
-        'email',
-        'company_name',
-        'position',
-        'rate',
-        'status',
-        'notes'
-    ]
+    fields = ["name", "email", "company_name", "position", "rate", "status", "notes"]
 
     def form_valid(self, form):
         form.instance.user = self.request.user
@@ -51,28 +43,12 @@ class ApplicationCreateView(LoginRequiredMixin, CreateView):
 
 class ApplicationUpdateView(LoginRequiredMixin, UpdateView):
     model = Application
-    fields = [
-        'name',
-        'email',
-        'company_name',
-        'position',
-        'rate',
-        'status',
-        'notes'
-    ]
+    fields = ["name", "email", "company_name", "position", "rate", "status", "notes"]
     action = "Update"
 
 
 class ApplicationDeleteView(LoginRequiredMixin, DeleteView):
     model = Application
-    fields = [
-        'name',
-        'email',
-        'company_name',
-        'position',
-        'rate',
-        'status',
-        'notes'
-    ]
+    fields = ["name", "email", "company_name", "position", "rate", "status", "notes"]
     action = "Delete"
-    success_url = reverse_lazy('jobs:list')
+    success_url = reverse_lazy("jobs:list")
